@@ -22,17 +22,17 @@ c_CFD02 = x_trailing_edge - x_leading_edge;
 xi = (x_CFD02 - x_leading_edge)/ c_CFD02;
 
 figure,
-plot(xi, Cp_CFD02, 'Marker', 'o', 'DisplayName', 'CFD', ...
+plot(xi, Cp_CFD02, 'Marker', 'o', 'DisplayName', 'CFD (Fluent)', ...
   'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
 hold on;
 plot(x_Experimental02, Cp_Experimental02,'Marker', 's', 'DisplayName', ...
-  'Experimental', 'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
-xlabel('$x/c$', 'FontSize', 20, 'Interpreter', 'latex');
-ylabel('$C_p$', 'FontSize', 20, 'Interpreter', 'latex');
+  'Experimental (ONERA)', 'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
+xlabel('$x/c$', 'FontSize', 14, 'Interpreter', 'latex');
+ylabel('$C_p$', 'FontSize', 14, 'Interpreter', 'latex');
 grid on;
-set(gca, 'FontSize', 20, 'TickLabelInterpreter', 'latex', 'linewidth', 1)
+set(gca, 'FontSize', 20, 'TickLabelInterpreter', 'latex', 'linewidth', 1, 'YDir', 'reverse')
 legend('Location', 'best', 'FontSize', 20, 'Interpreter', 'latex');
-title(sprintf('Pressure Coefficent $C_p$ for 02'), 'Interpreter', 'latex');
+title(sprintf('Pressure Coefficent $C_p$ at Spanwise Station $y/b = 0.20$'), 'Interpreter', 'latex');
 hold off;
 
 %% Loading 09
@@ -56,16 +56,16 @@ c_CFD09 = x_trailing_edge - x_leading_edge;
 xi = (x_CFD09 - x_leading_edge)/ c_CFD09;
 
 figure,
-plot(xi, Cp_CFD09, 'Marker', 'o', 'DisplayName', 'CFD', ...
+plot(xi, Cp_CFD09, 'Marker', 'o', 'DisplayName', 'CFD (Fluent)', ...
   'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
 hold on;
 plot(x_Experimental09, Cp_Experimental09,'Marker', 's', 'DisplayName', ...
-  'Experimental', 'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
+  'Experimental (ONERA)', 'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
 xlabel('$x/c$', 'FontSize', 20, 'Interpreter', 'latex');
 ylabel('$C_p$', 'FontSize', 20, 'Interpreter', 'latex');
 grid on;
-set(gca, 'FontSize', 20, 'TickLabelInterpreter', 'latex', 'linewidth', 1)
+set(gca, 'FontSize', 20, 'TickLabelInterpreter', 'latex', 'linewidth', 1, 'YDir', 'reverse')
 legend('Location', 'best', 'FontSize', 20, 'Interpreter', 'latex');
-title(sprintf('Pressure Coefficent $C_p$ for 09'), 'Interpreter', 'latex');
+title(sprintf('Pressure Coefficent $C_p$ at Spanwise Station $y/b = 0.9$'), 'Interpreter', 'latex');
 
 
