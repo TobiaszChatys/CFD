@@ -1,7 +1,7 @@
 %% Setup
 clear; clc; close all;
 
-%% loading
+%% loading 02
 
 CFD02 = readmatrix('cp_y02case01_upper.csv');
 Experimental02 = readmatrix('cp_y02experimental_upper.csv');
@@ -32,3 +32,40 @@ ylabel('$C_p$', 'FontSize', 20, 'Interpreter', 'latex');
 grid on;
 set(gca, 'FontSize', 20, 'TickLabelInterpreter', 'latex', 'linewidth', 1)
 legend('Location', 'best', 'FontSize', 20, 'Interpreter', 'latex');
+title(sprintf('Pressure Coefficent $C_p$ for 02'), 'Interpreter', 'latex');
+hold off;
+
+%% Loading 09
+
+CFD09 = readmatrix('cp_y09case01_upper.csv');
+Experimental09 = readmatrix('cp_y09experimental_upper.csv');
+
+x_CFD09 = CFD09(:, 1);
+x_Experimental09 = Experimental09(:, 1);
+
+Cp_CFD09 = CFD09(:, 2);
+Cp_Experimental09 = -Experimental09(:,2);
+
+x_leading_edge = min(x_CFD09);
+x_trailing_edge = max(x_CFD09);
+
+c_CFD09 = x_trailing_edge - x_leading_edge;
+
+%% Non-Dimensionalise
+
+xi = (x_CFD09 - x_leading_edge)/ c_CFD09;
+
+figure,
+plot(xi, Cp_CFD09, 'Marker', 'o', 'DisplayName', 'CFD', ...
+  'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
+hold on;
+plot(x_Experimental09, Cp_Experimental09,'Marker', 's', 'DisplayName', ...
+  'Experimental', 'MarkerSize', 10, 'LineStyle', 'none', 'LineWidth', 2);
+xlabel('$x/c$', 'FontSize', 20, 'Interpreter', 'latex');
+ylabel('$C_p$', 'FontSize', 20, 'Interpreter', 'latex');
+grid on;
+set(gca, 'FontSize', 20, 'TickLabelInterpreter', 'latex', 'linewidth', 1)
+legend('Location', 'best', 'FontSize', 20, 'Interpreter', 'latex');
+title(sprintf('Pressure Coefficent $C_p$ for 09'), 'Interpreter', 'latex');
+
+
